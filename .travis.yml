@@ -7,6 +7,7 @@ script:
 
 # Set php versions
 php:
+  - 7.4
   - 7.3
   - 7.2
   - 7.1
@@ -26,4 +27,4 @@ mysql:
 before_script: 'composer install -n && cd _build/test && ./generateConfigs.sh'
 
 before_install:
-  -  if [[ "(7.0 7.1 7.2 7.3 nightly)" =~ $(phpenv version-name) ]]; then curl -sL -o ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit https://phar.phpunit.de/phpunit-6.5.phar; chmod +x ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit; fi
+  -  if [[ "(7.0 7.1 7.2 7.3 7.4 nightly)" =~ $(phpenv version-name) ]]; then curl -sL -o ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit https://phar.phpunit.de/phpunit-6.5.phar; chmod +x ~/.phpenv/versions/$(phpenv version-name)/bin/phpunit; fi
