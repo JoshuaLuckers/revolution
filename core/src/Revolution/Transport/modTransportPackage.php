@@ -747,7 +747,13 @@ class modTransportPackage extends xPDOObject
     protected function _bytes($value)
     {
         $value = trim($value);
+        if (is_numeric($value)) {
+            return $value;
+        }
+
         $modifier = strtolower($value[strlen($value) - 1]);
+        $value = substr($value, 0, -1);
+
         switch ($modifier) {
             case 'g':
                 $value *= 1024;
