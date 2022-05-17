@@ -68,6 +68,16 @@ class modInputFilterTest extends MODxTestCase
                     'foo',
                     'bar',
                 ]
+            ],
+            [
+                'content:notempty=`[[!Wayfinder? &startId=`0` &level=`1`]]`',
+                'content',
+                [
+                    'notempty',
+                ],
+                [
+                    '[[!Wayfinder? &startId=`0` &level=`1`]]',
+                ]
             ]
         ];
     }
