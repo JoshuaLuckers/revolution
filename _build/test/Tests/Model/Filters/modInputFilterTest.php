@@ -68,6 +68,20 @@ class modInputFilterTest extends MODxTestCase
                     'foo',
                     'bar',
                 ]
+            ],
+            [
+                'content:eq=`foobar`:then=`then: foo`:else=`else:bar`',
+                'content',
+                [
+                    'eq',
+                    'then',
+                    'else',
+                ],
+                [
+                    'foobar',
+                    'then: foo',
+                    'else:bar',
+                ]
             ]
         ];
     }
