@@ -53,7 +53,7 @@ class modInputFilter
             $matches = [];
             $name = trim(substr($output, 0, $splitPos));
             $modifiers = substr($output, $splitPos);
-            if (preg_match_all('~:([^:=]+)(?:=`((?:(?:(?:(?===)(?:[^:]*?)|(?:[^:=]*?))*?|(?R))*?))`)?~s', $modifiers, $matches)) {
+            if (preg_match_all('~:([^:=\s]+)(?(?=:)|=`(\Q[[\E(?:(?:(?:[^\[\]][\s\S]*?|(?R))*?))\Q]]\E|.+?)`)?~s', $modifiers, $matches)) {
                 $this->_commands = $matches[1]; /* modifier commands */
                 $this->_modifiers = $matches[2]; /* modifier values */
             }
