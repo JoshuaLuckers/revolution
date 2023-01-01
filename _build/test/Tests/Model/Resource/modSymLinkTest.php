@@ -9,9 +9,11 @@
  *
  * @package modx-test
 */
+
 namespace MODX\Revolution\Tests\Model\Resource;
 
 
+use MODX\Revolution\modSymLink;
 use MODX\Revolution\MODxTestCase;
 
 /**
@@ -23,10 +25,41 @@ use MODX\Revolution\MODxTestCase;
  * @group Resource
  * @group modResource
  */
-class modSymLinkTest extends MODxTestCase {
+class modSymLinkTest extends MODxTestCase
+{
 
-    public function testIncomplete()
+    /**
+     * @var modSymlink $symlink
+     */
+    protected $symlink;
+
+    /**
+     * Setup fixtures before each test.
+     *
+     * @before
+     */
+    public function setUpFixtures()
     {
-        $this->markTestIncomplete( 'This test has not been implemented yet.');
+        parent::setUpFixtures();
+
+        /** @var modSymlink $symlink */
+        $symlink = $this->modx->newObject(modSymlink::class);
+        $this->symlink = $symlink;
+    }
+
+    /**
+     * Tear down fixtures after each test.
+     *
+     * @after
+     */
+    public function tearDownFixtures()
+    {
+        parent::tearDownFixtures();
+    }
+
+    public function testConstruct()
+    {
+        $this->assertEquals('reference', $this->symlink->get('type'));
+        $this->assertEquals('web', $this->symlink->_contextKey);
     }
 }
